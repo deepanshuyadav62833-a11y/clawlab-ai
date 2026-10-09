@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClawLab AI - Creator Studio</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0d1020;color:#f5f5ff;font-family:Arial,sans-serif}
+main{max-width:760px;margin:auto;padding:28px 18px}
+header{padding:25px 0}
+.logo{font-size:28px;font-weight:800;color:#a99aff}
+.tag{color:#b5b8d1}
+h1{font-size:38px;line-height:1.15}
+.card{background:#191e33;border:1px solid #343a55;border-radius:18px;padding:22px;margin:22px 0}
+label{display:block;margin:15px 0 8px}
+select,textarea,button{width:100%;padding:14px;border-radius:10px;font-size:16px}
+select,textarea{background:#10152a;color:white;border:1px solid #444c6b}
+textarea{min-height:90px;resize:vertical}
+button{background:#a99aff;color:#17102c;font-weight:bold;border:0;margin-top:16px}
+button:active{opacity:.8}
+#output{white-space:pre-wrap;line-height:1.7;color:#e2e4ff}
+.small{font-size:13px;color:#aeb2cb;line-height:1.6}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="logo">✦ ClawLab AI</div>
+<p class="tag">Your next idea starts here.</p>
+</header>
+<h1>Make your next Short more creative.</h1>
+<p class="tag">Explore original concepts for short-form videos.</p>
+<div class="card">
+<h2>Shorts Idea Studio</h2>
+<label for="genre">Choose your niche</label>
+<select id="genre">
+<option value="comedy">2D comedy animation</option>
+<option value="story">Animated storytelling</option>
+<option value="football">Football comparisons</option>
+<option value="facts">Interesting facts</option>
+</select>
+<label for="topic">Optional topic</label>
+<textarea id="topic" placeholder="Example: a student who tries to cheat a vending machine"></textarea>
+<button onclick="makeIdea()">Generate a video idea</button>
+<h3>Your idea</h3>
+<div id="output">Your video concept will appear here.</div>
+</div>
+<div class="card">
+<h2>About this project</h2>
+<p class="tag">ClawLab AI is an independent creator-tool prototype designed to help video creators brainstorm concepts and develop original content.</p>
+<p class="small">This version uses built-in examples. It does not yet connect to an AI model.</p>
+</div>
+<p class="small">ClawLab AI · Early prototype</p>
+</main>
+<script>
+function makeIdea(){
+const genre=document.getElementById('genre').value;
+const topic=document.getElementById('topic').value.trim();
+const ideas={
+comedy:"A confident character invents a clever shortcut, only to discover that the shortcut creates a much bigger problem.",
+story:"A mysterious object appears in a small town and changes one ordinary person's day in an unexpected way.",
+football:"Create a country-versus-country football comparison with clear categories and a final score.",
+facts:"Create a short video revealing three surprising facts about an everyday object."
+};
+document.getElementById('output').textContent=
+(topic ? "Topic: "+topic+"\n\n" : "")+
+ideas[genre]+"\n\nSuggested structure:\n1. Hook: grab attention in the first 2 seconds.\n2. Development: show the main idea.\n3. Payoff: finish with a surprising or satisfying ending.";
+}
+</script>
+</body>
+</html>
